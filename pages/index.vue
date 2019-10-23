@@ -1,15 +1,15 @@
 <template>
-  <Header />
+  <PlusForm />
 </template>
 
 <script>
-import Header from "~/components/Header.vue";
 import Memo from "~/components/Memo.vue";
+import PlusForm from "~/components/PlusForm.vue";
 
 export default {
   components: {
-    Header,
-    Memo
+    Memo,
+    PlusForm
   },
   data: function() {
     return {};
