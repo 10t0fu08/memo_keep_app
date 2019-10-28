@@ -4,11 +4,10 @@
   padding: 0;
   color: #5f5f5f;
   //   レイヤー用height
-  height: 100%;
-  html.body {
-    input:focus,
-    button:focus {
-      outline: none;
-    }
+  // height: 100%;
+
+  input:focus,
+  button:focus {
+    outline: none;
   }
 }

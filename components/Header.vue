@@ -20,7 +20,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 $bg-color: #fdfdfd;
 
 .header {
@@ -75,7 +75,6 @@ $bg-color: #fdfdfd;
       width: 48px;
       // background-color: darken($bg-color, 5%);
       background-color: $bg-color;
-      margin-right: 0;
     }
   }
   .plus_icon {
@@ -91,10 +90,9 @@ $bg-color: #fdfdfd;
   }
   .login_name {
     display: block;
-    margin-left: auto;
+    margin: auto;
     line-height: 48px;
     font-weight: bold;
-    padding-right: 24px;
   }
 }
 </style>

@@ -1,11 +1,18 @@
 <template>
   <!-- モーダル用レイヤー -->
-  <!-- <div class="layer">
+  <div class="layer">
     <form class="memo_form">
-      <input name="title" type="text" placeholder="タイトル" />
-      <textarea name="memo" placeholder="メモを入力..."></textarea>
+      <div class="title_form_wrap">
+        <input name="title" type="text" class="title_form" placeholder="タイトル" />
+      </div>
+      <div class="memo_content_wrap">
+        <textarea name="memo" placeholder="メモを入力..." class="memo_content"></textarea>
+      </div>
+      <div class="color_form_wrap">
+        <input name="color" type="color" class="color_form" />
+      </div>
     </form>
-  </div>-->
+  </div>
 </template>
 
 <script>
@@ -13,15 +20,24 @@ export default {};
 </script>
 
 <style lang="scss"scoped>
-// .layer {
-//   position: fixed;
-//   background-color: rgba(0, 0, 0, 0.4);
-//   width: 100%;
-//   height: 100%;
-//   .memo_form {
-//     width: 50%;
-//     height: 50%;
-//     background-color: #fff;
-//   }
-// }
+.layer {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  .memo_form {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    display: block;
+    .title_form {
+      border: 1px solid #000000;
+      height: 30px;
+    }
+  }
+}
 </style>
