@@ -1,8 +1,9 @@
 <template>
   <div class="memo_wrap">
     <p class="memo_title"></p>
-    <ul class="memo_group">
-      <li class="memo"></li>
+    <ul v-for="memo in $store.state.memo" class="memo_group">
+      <h1>{{memo.title}}</h1>
+      <li>{{memo.content}}</li>
     </ul>
   </div>
 </template>
@@ -16,4 +17,7 @@ export default {
 </script>
 
 <style lang=scss"">
+h1 {
+  font-size: 100px;
+}
 </style>

@@ -3,7 +3,14 @@
   <div class="layer">
     <form class="memo_form">
       <div class="title_form_wrap">
-        <input name="title" type="text" class="title_form" placeholder="タイトル" />
+        <input
+          name="title"
+          type="text"
+          class="title_form"
+          placeholder="タイトル"
+          :value="$store.state.memo.title"
+          @change="$store.commit('set_title')"
+        />
       </div>
       <div class="memo_content_wrap">
         <textarea name="memo" placeholder="メモを入力..." class="memo_content"></textarea>
@@ -33,10 +40,12 @@ export default {};
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #fff;
-    display: block;
+    // display: block;
+
     .title_form {
       border: 1px solid #000000;
-      height: 30px;
+      width: 100%;
+      height: 100%;
     }
   }
 }

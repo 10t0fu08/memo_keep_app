@@ -1,5 +1,8 @@
 <template>
-  <PlusForm />
+  <div>
+    <PlusForm />
+    <Memo />
+  </div>
 </template>
 
 <script>

@@ -80,7 +80,8 @@ $bg-color: #fdfdfd;
   .plus_icon {
     height: 48px;
     width: 120px;
-    background: linear-gradient(to right, #7fbfff, #7fffff);
+    // background: linear-gradient(to right, #7fbfff, #7fffff);
+    background-color: #28b2b9;
     border-radius: 25px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
     margin-left: 48px;
