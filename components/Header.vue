@@ -13,7 +13,7 @@
         </form>
       </b-col>
       <b-col col lg="3">
-        <button class="plus_icon">メモを追加</button>
+        <button class="plus_icon">メモを追加さ</button>
       </b-col>
     </b-row>
   </b-container>
