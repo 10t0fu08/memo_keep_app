@@ -40,8 +40,6 @@ export default {};
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #fff;
-    // display: block;
-
     .title_form {
       border: 1px solid #000000;
       width: 100%;

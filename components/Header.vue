@@ -1,15 +1,22 @@
 <template>
-  <header class="header">
-    <button class="hum_menu" />
-    <p class="title">memo keep app</p>
-    <form class="serch_form">
-      <button class="serch_icon" />
-      <input type="text" class="serch_input" placeholder="検索" />
-      <button class="close_icon" />
-    </form>
-    <button class="plus_icon">メモを追加</button>
-    <p class="login_name">葛西透也</p>
-  </header>
+  <b-container>
+    <b-row class="justify-content-md-center header">
+      <b-col col lg="3">
+        <button class="hum_menu" />
+        <p class="title">memo keep app</p>
+      </b-col>
+      <b-col col lg="6" md="auto">
+        <form class="serch_form">
+          <button class="serch_icon" />
+          <input type="search" class="serch_input" placeholder="search" />
+          <button class="close_icon" />
+        </form>
+      </b-col>
+      <b-col col lg="3">
+        <button class="plus_icon">メモを追加</button>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
@@ -22,78 +29,67 @@ export default {
 
 <style lang="scss" scoped>
 $bg-color: #fdfdfd;
-
-.header {
-  background-color: #fdfdfd;
-  height: 64px;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
-  display: flex;
-  // justify-content: space-between;
-  padding: 8px;
-  position: fixed;
+.container {
   width: 100%;
-  .hum_menu {
-    height: 48px;
-    width: 48px;
-    background-color: darken($bg-color, 5%);
-  }
-  .title {
-    color: #5f5f5f;
-    font-size: 24px;
-    line-height: 48px;
-    font-weight: bold;
+  height: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  .row {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 64px;
     margin: 0;
-    margin-left: 12px;
-    // padding-right: 48px;
-  }
-  .serch_form {
-    width: 50%;
-    height: 48px;
-    padding: 0 10px 0 10px;
-    // background-color: darken($bg-color, 5%);
-    background-color: $bg-color;
-    border-radius: 0.5em;
-    display: flex;
-    justify-content: space-between;
-    margin-left: 120px;
-    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
-    .serch_icon {
-      height: 48px;
-      width: 48px;
-      // background-color: darken($bg-color, 5%);
-      background-color: $bg-color;
-    }
-    .serch_input {
-      width: 100%;
-      font-weight: bold;
-      &::placeholder {
-        font-weight: normal;
+    box-sizing: border-box;
+    .col {
+      height: 100%;
+      box-sizing: border-box;
+      display: flex;
+      .hum_menu {
+        width: 40px;
+        height: 40px;
+        background-color: #eee;
+      }
+      .title {
+        margin: 0;
+        line-height: 40px;
+        font-size: 22px;
+        font-weight: bold;
+        margin-left: 8px;
       }
     }
-    .close_icon {
-      height: 48px;
-      width: 48px;
-      // background-color: darken($bg-color, 5%);
-      background-color: $bg-color;
+    .serch_form {
+      width: 90%;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+      border-radius: 0.5em;
+      display: flex;
+      padding: 4px;
+      margin: auto;
+      .serch_icon {
+        width: 32px;
+        height: 32px;
+        background-color: #eee;
+      }
+      .serch_input {
+        height: 32px;
+        width: 100%;
+      }
+      .close_icon {
+        width: 32px;
+        height: 32px;
+        background-color: #eee;
+      }
     }
-  }
-  .plus_icon {
-    height: 48px;
-    width: 120px;
-    // background: linear-gradient(to right, #7fbfff, #7fffff);
-    background-color: #28b2b9;
-    border-radius: 25px;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-    margin-left: 48px;
-    font-weight: bold;
-    font-size: 12px;
-    color: #fdfdfd;
-  }
-  .login_name {
-    display: block;
-    margin: auto;
-    line-height: 48px;
-    font-weight: bold;
+    .plus_icon {
+      width: 112px;
+      height: 40px;
+      background-color: #00b900;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #fafafa;
+      margin: auto;
+    }
   }
 }
 </style>

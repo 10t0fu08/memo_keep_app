@@ -5,10 +5,67 @@ const createStore = () => {
         state: function () {
             return {
                 memo: [
-                    // メモのタイトル
-                    { title: 'タイトル' },
-                    // メモのコンテンツ
-                    { content: 'ああああ' }
+                    {
+                        id: '1',
+                        title: 'title 1',
+                        content: ['memo content 1-1', 'memo content1-2', 'memo content1-3', 'memo content 1-1', 'memo content1-2', 'memo content1-3'],
+                        background: "#333"
+                    },
+                    {
+                        id: '2',
+                        title: 'title 2',
+                        content: 'memo content 2',
+                        background: "#333"
+                    },
+                    {
+                        id: '3',
+                        title: 'title 3',
+                        content: 'memo content 3',
+                        background: "#333"
+                    },
+                    {
+                        id: '4',
+                        title: 'title 4',
+                        content: 'memo content 4',
+                        background: "#333"
+                    },
+                    {
+                        id: '5',
+                        title: 'title 5',
+                        content: 'memo content 5',
+                        background: "#333"
+                    },
+                    {
+                        id: '6',
+                        title: 'title 2',
+                        content: 'memo content 2',
+                        background: "#333"
+                    },
+                    {
+                        id: '7',
+                        title: 'title 2',
+                        content: 'memo content 2',
+                        background: "#333"
+                    },
+                    {
+                        id: '8',
+                        title: 'title 2',
+                        content: 'memo content 2',
+                        background: "#333"
+                    },
+                    {
+                        id: '9',
+                        title: 'title 2',
+                        content: 'memo content 2',
+                        background: "#333"
+                    },
+                    {
+                        id: '10',
+                        title: 'title 2',
+                        content: 'memo content 2',
+                        background: "#333"
+                    },
+
                 ]
             }
         },

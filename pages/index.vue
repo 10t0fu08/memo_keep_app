@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PlusForm />
+    <!-- <PlusForm /> -->
     <Memo />
   </div>
 </template>
