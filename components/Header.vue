@@ -5,30 +5,37 @@
         <button class="hum_menu" />
         <p class="title">memo keep app</p>
       </b-col>
-      <b-col col lg="6" md="auto">
+      <b-col col lg="6">
         <form class="serch_form">
           <button class="serch_icon" />
-          <input type="search" class="serch_input" placeholder="search" />
+          <input type="search" class="serch_input" placeholder="検索" />
           <button class="close_icon" />
         </form>
       </b-col>
       <b-col col lg="3">
-        <button class="plus_icon">メモを追加さ</button>
+        <!-- モーダル -->
+        <div class="plus_icon_wrap">
+          <b-button class="plus_icon" v-b-modal.modal-prevent-closing>メモを追加</b-button>
+          <ModalForm />
+        </div>
       </b-col>
     </b-row>
   </b-container>
 </template>
 
 <script>
+import ModalForm from "~/components/ModalForm.vue";
 export default {
+  components: {
+    ModalForm
+  },
   data: function() {
     return {};
   }
 };
 </script>
 
-<style lang="scss" scoped>
-$bg-color: #fdfdfd;
+<style lang="scss">
 .container {
   width: 100%;
   height: 100%;
@@ -41,10 +48,14 @@ $bg-color: #fdfdfd;
     height: 64px;
     margin: 0;
     box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    background-color: #fafafa;
     .col {
       height: 100%;
       box-sizing: border-box;
       display: flex;
+
       .hum_menu {
         width: 40px;
         height: 40px;
@@ -64,7 +75,7 @@ $bg-color: #fdfdfd;
       border-radius: 0.5em;
       display: flex;
       padding: 4px;
-      margin: auto;
+      margin-left: auto;
       .serch_icon {
         width: 32px;
         height: 32px;
@@ -80,15 +91,24 @@ $bg-color: #fdfdfd;
         background-color: #eee;
       }
     }
-    .plus_icon {
-      width: 112px;
-      height: 40px;
-      background-color: #00b900;
-      border-radius: 25px;
-      font-size: 14px;
-      font-weight: bold;
-      color: #fafafa;
+
+    .plus_icon_wrap {
       margin: auto;
+
+      .plus_icon {
+        width: 112px;
+        height: 40px;
+        background-color: #00b900;
+        border-radius: 20px;
+        border: none;
+        font-size: 14px;
+        font-weight: bold;
+        color: #fafafa;
+
+        &:hover {
+          background-color: darken(#00b900, 4%);
+        }
+      }
     }
   }
 }
