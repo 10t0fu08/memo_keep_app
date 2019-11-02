@@ -2,7 +2,7 @@
   <div class="memo_wrap">
     <div v-for="memo in $store.state.memo" :key="memo.id" class="memo_group">
       <div class="memo_header">
-        <input :value="memo.title" class="memo_title" />
+        <input :value="memo.title" class="memo_title" @input="$store.commit('add_title')" />
         <button class="edit_button">編集</button>
       </div>
       <textarea :value="memo.content" class="memo_content"></textarea>
