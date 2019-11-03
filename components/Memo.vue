@@ -1,11 +1,18 @@
 <template>
   <div class="memo_wrap">
-    <div v-for="memo in $store.state.memo" :key="memo.id" class="memo_group">
+    <div
+      v-for="memo in $store.state.memo"
+      :key="memo.id"
+      class="memo_group"
+      :style="{backgroundColor:memo.color}"
+    >
       <div class="memo_header">
-        <input :value="memo.title" class="memo_title" @input="$store.commit('add_title')" />
+        <input :value="memo.title" class="memo_title" />
         <button class="edit_button">編集</button>
       </div>
-      <textarea :value="memo.content" class="memo_content"></textarea>
+      <div class="memo_main">
+        <textarea :value="memo.content" class="memo_content"></textarea>
+      </div>
     </div>
   </div>
 </template>
@@ -56,13 +63,16 @@ export default {
         font-weight: bold;
       }
     }
-    .memo_content {
-      // インライン解除
-      display: block;
-      width: 100%;
-      height: 80%;
-      resize: none;
-      overflow: visible;
+    .memo_main {
+      padding: 3px 6px;
+      .memo_content {
+        // インライン解除
+        display: block;
+        width: 100%;
+        height: 80%;
+        resize: none;
+        overflow: visible;
+      }
     }
   }
 }

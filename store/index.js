@@ -4,76 +4,57 @@ const createStore = () => {
     return new Vuex.Store({
         state: function () {
             return {
+                title: "",
+                content: "",
+                color: "",
                 memo: [
                     // {
                     //     id: '1',
                     //     title: 'title 1',
                     //     content: 'memo content 1',
                     //     background: "#333"
-                    // },
-                    // {
-                    //     id: '2',
-                    //     title: 'title 2',
-                    //     content: 'memo content 2',
-                    //     background: "#333"
-                    // },
-                    // {
-                    //     id: '3',
-                    //     title: 'title 3',
-                    //     content: 'memo content 3',
-                    //     background: "#333"
-                    // },
-                    // {
-                    //     id: '4',
-                    //     title: 'title 4',
-                    //     content: 'memo content 4',
-                    //     background: "#333"
-                    // },
-                    // {
-                    //     id: '5',
-                    //     title: 'title 5',
-                    //     content: 'memo content 5',
-                    //     background: "#333"
-                    // },
-                    // {
-                    //     id: '6',
-                    //     title: 'title 6',
-                    //     content: 'memo content 6',
-                    //     background: "#333"
-                    // },
-                    // {
-                    //     id: '7',
-                    //     title: 'title 7',
-                    //     content: 'memo content 7',
-                    //     background: "#333"
-                    // },
-                    // {
-                    //     id: '8',
-                    //     title: 'title 8',
-                    //     content: 'memo content 8',
-                    //     background: "#333"
-                    // },
-                    // {
-                    //     id: '9',
-                    //     title: 'title 9',
-                    //     content: 'memo content 9',
-                    //     background: "#333"
-                    // },
-                    // {
-                    //     id: '10',
-                    //     title: 'title 10',
-                    //     content: 'memo content 10',
-                    //     background: "#333"
-                    // },
-
+                    // },                   
                 ]
             }
         },
         mutations: {
             set_title: function (state) {
-                state.memo.title = event.target.value
-                console.log(state.memo.title)
+                state.title = event.target.value
+                console.log(state.title)
+            },
+            set_content: function (state) {
+                state.content = event.target.value
+                console.log(state.content)
+            },
+            set_color: function (state) {
+                if (event.target.value === "Red") {
+                    state.color = "#ffa3a3";
+                } else if (event.target.value === "Yellow") {
+                    state.color = "#ffff93";
+                } else if (event.target.value === "Green") {
+                    state.color = "#99ff99";
+                }
+                // state.color = event.target.value
+                // console.log(state.color)
+            },
+            cancel_form: function (state) {
+                state.title = "";
+                state.content = "";
+                state.color = "";
+                console.log(state.title)
+                console.log(state.content)
+                console.log(state.color)
+            },
+            add_memo: function (state) {
+                state.memo.push({ title: state.title, content: state.content, color: state.color, })
+                state.title = "";
+                state.content = "";
+                state.color = "";
+                console.log(state.title)
+                console.log(state.content)
+                console.log(state.color)
             }
+
         }
     })
 }
