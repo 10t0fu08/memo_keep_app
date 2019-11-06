@@ -1,16 +1,18 @@
 <template>
   <div>
-    <!-- <PlusForm /> -->
     <Memo />
+    <Alert />
   </div>
 </template>
 
 <script>
 import Memo from "~/components/Memo.vue";
+import Alert from "~/components/Alert.vue";
 
 export default {
   components: {
-    Memo
+    Memo,
+    Alert
   },
   data: function() {
     return {};

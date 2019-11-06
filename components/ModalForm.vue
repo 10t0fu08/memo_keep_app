@@ -11,22 +11,37 @@
           max-rows="4"
           @input="set_content"
         ></b-form-textarea>
-        <!-- <input type="color" value="#eeeeee" class="color_form" @input="set_color" /> -->
-        <input type="radio" name="color" value="Red" @click="set_color" />Red
-        <input type="radio" name="color" value="Yellow" @click="set_color" />Yellow
-        <input type="radio" name="color" value="Green" @click="set_color" />Green
+        <div class="color_form_group">
+          <select
+            class="color_form"
+            name="color"
+            @input="set_color"
+            :style="{backgroundColor:$store.state.color}"
+          >
+            <option value="null">背景色を選択してください</option>
+            <option value="Red">赤色</option>
+            <option value="Yellow">黄色</option>
+            <option value="Green">緑色</option>
+            <option value="Pink">桃色</option>
+            <option value="Purple">紫色</option>
+            <option value="Blue">青色</option>
+          </select>
+        </div>
       </b-form-group>
     </form>
-    <template v-slot:modal-footer="{ cancel, ok}">
-      <!-- <b>Custom Footer</b> -->
-      <!-- Emulate built in modal footer ok and cancel button actions -->
-      <b-button size="sm" variant="danger" @click="cancel(); cancel_form()">キャンセル</b-button>
-      <b-button size="sm" variant="success" 　@click="ok(); add_memo()">追加</b-button>
+    <template v-slot:modal-footer="{ cancel, ok }">
+      <b-button size="sm" variant="light" @click="cancel(); cancel_form()">キャンセル</b-button>
+      <b-button size="sm" variant="success" @click="ok(); add_memo()">追加</b-button>
     </template>
   </b-modal>
 </template>
 <script>
 export default {
+  data: function() {
+    return {
+      options: this.$store.state.options
+    };
+  },
   methods: {
     set_title: function() {
       this.$store.commit("set_title");
@@ -57,11 +72,20 @@ export default {
     border: none;
     font-size: 12px;
     resize: none;
+    margin-bottom: 4px;
   }
-  .color_form {
-    padding: 6px 10px;
-    width: 100%;
-    height: 30px;
+  .color_form_group {
+    // padding: 6px 12px;
+    .color_form {
+      border: none;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+      font-weight: bold;
+      width: 100%;
+      height: 28px;
+      font-size: 12px;
+      box-sizing: border-box;
+      padding: 6px 12px;
+    }
   }
 }
 </style>

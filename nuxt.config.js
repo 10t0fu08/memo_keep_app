@@ -5,7 +5,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: "memo keep app",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -24,7 +24,8 @@ export default {
   */
   css: [
     '@/assets/css/styles.scss',
-    '@/assets/css/styles.css'
+    '@/assets/css/styles.css',
+    '@fortawesome/fontawesome-free/css/all.css',
   ],
   /*
   ** Plugins to load before mounting the App
@@ -46,6 +47,7 @@ export default {
 
 
   ],
+
   /*
   ** Build configuration
   */
