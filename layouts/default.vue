@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="default_wrap">
     <Header />
-    <Footer />
+    <!-- <Footer /> -->
     <nuxt />
   </div>
 </template>
@@ -12,12 +12,14 @@ export default {
   components: {
     Header,
     Footer
+  },
+  created: function() {
+    this.$store.commit("init_memo");
   }
 };
 </script>
 
-<style>
-</style>
-
 <style lang="scss">
+.default_wrap {
+}
 </style>

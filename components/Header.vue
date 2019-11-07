@@ -2,9 +2,10 @@
   <b-container>
     <b-row class="justify-content-md-center header">
       <b-col col lg="3" md="3" sm="2" cols="2">
-        <button class="main_icon">
-          <i class="fas fa-envelope-open-text"></i>
-        </button>
+        <div class="main_icon">
+          <!-- <i class="fas fa-envelope-open-text"></i> -->
+          <img src="../assets/img/favicon.png" class="img_icon" />
+        </div>
         <p class="title">memo keep app</p>
       </b-col>
       <b-col col lg="6" md="7" sm="8" cols="8">
@@ -12,7 +13,12 @@
           <button class="search_icon">
             <i class="fas fa-search"></i>
           </button>
-          <input type="search" class="search_input" placeholder="search" @input="search_memo" />
+          <input
+            type="search"
+            class="search_input"
+            placeholder="search"
+            @input="$store.commit('search_memo')"
+          />
         </form>
       </b-col>
       <b-col col lg="3" md="2" sm="2" cols="2">
@@ -22,14 +28,12 @@
             variant="warning"
             class="add_icon"
             v-b-modal.modal-prevent-closing
-            @click="init_form"
             v-show="width_flag"
           >add</b-button>
           <b-button
             variant="warning"
             class="plus_icon"
             v-b-modal.modal-prevent-closing
-            @click="init_form"
             v-show="!width_flag"
           >+</b-button>
           <ModalForm />
@@ -54,12 +58,6 @@ export default {
     };
   },
   methods: {
-    init_form: function() {
-      this.$store.commit("init_form");
-    },
-    search_memo: function() {
-      this.$store.commit("search_memo");
-    },
     handleResize: function() {
       // resizeのたびに発火する
       this.width = window.innerWidth;
@@ -110,8 +108,9 @@ export default {
         width: 40px;
         height: 40px;
         // background-color: #eee;
-        .fa-envelope-open-text {
-          font-size: 32px;
+        .img_icon {
+          width: 100%;
+          display: inline-block;
         }
       }
       .title {

@@ -2,26 +2,36 @@
   <div class="memo_wrap">
     <div
       v-for="(memo, index) in $store.state.memo"
-      :key="index"
       class="memo_group"
       :style="{backgroundColor:memo.color}"
       v-show="!$store.state.search"
     >
       <div class="memo_header">
-        <input :value="memo.title" class="memo_title" :readonly="!memo.edit" />
+        <input
+          :value="memo.title"
+          @input="$store.commit('set_edit_title',memo.id)"
+          class="memo_title"
+          :readonly="!memo.edit"
+        />
         <button
           class="edit_button"
-          @click="$store.commit('edit_change',index);"
+          @click="$store.commit('edit_change',memo.id);"
           v-show="!memo.edit"
         >編集</button>
         <button
           class="edit_button"
-          @click="$store.commit('edit_change',index);"
+          @click="$store.commit('edit_change',memo.id);"
           v-show="memo.edit"
         >完了</button>
       </div>
       <div class="memo_main">
-        <textarea :value="memo.content" class="memo_content" rows="4" :readonly="!memo.edit"></textarea>
+        <textarea
+          :value="memo.content"
+          @input="$store.commit('set_edit_content',memo.id)"
+          class="memo_content"
+          rows="4"
+          :readonly="!memo.edit"
+        ></textarea>
       </div>
       <div class="memo_footer">
         <button class="del_button" v-show="memo.edit" @click="$store.commit('del_memo',index)">
@@ -33,16 +43,41 @@
     <!-- 検索結果 -->
     <div
       v-for="(memo, index) in $store.state.search_memo"
-      :key="index"
       class="memo_group"
       :style="{backgroundColor:memo.color}"
       v-show="$store.state.search"
     >
       <div class="memo_header">
-        <input :value="memo.title" class="memo_title" readonly />
+        <input
+          :value="memo.title"
+          @input="$store.commit('set_edit_title',memo.id)"
+          class="memo_title"
+          :readonly="!memo.edit"
+        />
+        <button
+          class="edit_button"
+          @click="$store.commit('edit_search_change',memo.id);"
+          v-show="!memo.edit"
+        >編集</button>
+        <button
+          class="edit_button"
+          @click="$store.commit('edit_search_change',memo.id);"
+          v-show="memo.edit"
+        >完了</button>
       </div>
       <div class="memo_main">
-        <textarea class="memo_content" :value="memo.content" rows="4" readonly></textarea>
+        <textarea
+          class="memo_content"
+          :value="memo.content"
+          @input="$store.commit('set_edit_content',memo.id)"
+          rows="4"
+          :readonly="!memo.edit"
+        ></textarea>
+        <div class="memo_footer">
+          <button class="del_button" v-show="memo.edit" @click="$store.commit('del_memo',index)">
+            <i class="far fa-trash-alt"></i>
+          </button>
+        </div>
       </div>
       <!--  -->
     </div>
